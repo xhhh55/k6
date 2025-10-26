@@ -1,281 +1,1239 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TalenTree | منصة المواهب الذكية</title>
-  <meta name="description" content="TalenTree — منصة عربية تربط أصحاب المشاريع بالمواهب عبر الذكاء الاصطناعي، عقود وإيداع آمن، ولوحة تحكم للمشاريع." />
-  <meta name="theme-color" content="#0b1020" />
+  <title>هيئة دبي الرقمية | بوابة دفع الخدمات</title>
+  
+  <!-- الخطوط -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- أيقونات Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <style>
-    :root{
-      --bg:#0b1020;--panel:#0f172a;--text:#e5e7eb;--muted:#94a3b8;--stroke:rgba(255,255,255,.08);
-      --c1:#22d3ee;--c2:#a78bfa;--c3:#34d399;--radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35)
+    :root {
+      --primary: #0F4C81;
+      --primary-light: #1a6cb0;
+      --primary-dark: #0a3a62;
+      --secondary: #00A79D;
+      --secondary-light: #00c4b8;
+      --accent: #FF6B6B;
+      --accent-light: #ff8e8e;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --text-light: #64748b;
+      --text-lighter: #94a3b8;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --shadow: 0 10px 25px rgba(2, 8, 23, 0.08);
+      --shadow-hover: 0 20px 40px rgba(2, 8, 23, 0.12);
+      --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --radius: 20px;
+      --radius-sm: 12px;
+      --radius-lg: 30px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:
-      radial-gradient(1200px 600px at 10% -10%, rgba(34,211,238,.12), transparent 60%),
-      radial-gradient(900px 500px at 100% 0%, rgba(167,139,250,.10), transparent 50%),
-      var(--bg);
-      color:var(--text);font-family:"Tajawal", system-ui, sans-serif;scroll-behavior:smooth}
-    .container{width:min(1200px,92vw);margin-inline:auto}
-    header{position:sticky;top:0;z-index:40;background:linear-gradient(180deg, rgba(11,16,32,.9), rgba(11,16,32,.6) 70%, transparent);backdrop-filter: blur(8px);}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;color:var(--text)}
-    .logo{width:36px;height:36px;border-radius:10px;background:conic-gradient(from 200deg, var(--c1), var(--c2), var(--c3), var(--c1));box-shadow:0 0 0 3px rgba(255,255,255,.06)}
-    .links{display:flex;gap:18px;align-items:center}
-    .links a{color:var(--text);text-decoration:none;opacity:.9}
-    .cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg, var(--c2), var(--c1));color:#05111a;border:none;padding:10px 16px;border-radius:999px;font-weight:800;box-shadow:var(--shadow);text-decoration:none}
-    .menu{display:none}
 
-    .hero{padding:78px 0 40px}
-    .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
-    .title{font-size:clamp(30px,5vw,52px);line-height:1.15;margin:0 0 10px}
-    .sub{color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
-    .btn{border:1px solid var(--stroke);background:rgba(255,255,255,.02);color:var(--text);padding:10px 16px;border-radius:12px;text-decoration:none}
-    .btn.primary{border:none;background:linear-gradient(90deg, var(--c3), var(--c1));color:#04121a;font-weight:800}
-    .row{display:flex;gap:12px;flex-wrap:wrap}
-
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid var(--stroke);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .dashboard{aspect-ratio:16/10;position:relative;overflow:hidden}
-    .glow{position:absolute;inset:-40%;background:radial-gradient(600px 250px at 80% 20%, rgba(34,211,238,.18), transparent 50%),radial-gradient(500px 280px at 10% 80%, rgba(167,139,250,.15), transparent 50%)}
-    .ui{position:absolute;inset:12px;border-radius:14px;background:#0a1330;border:1px solid #1b2550;display:grid;grid-template-columns:240px 1fr}
-    .ui aside{border-inline-end:1px solid #1b2550;padding:14px}
-    .ui main{padding:16px}
-    .pill{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.3);font-weight:700;color:#b7faff}
-
-    section{padding:64px 0}
-    .sec-title{font-size:28px;margin:0 0 16px}
-    .muted{color:var(--muted)}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .ico{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.06);border:1px solid var(--stroke)}
-
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:14px}
-    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .price-card{padding:22px;position:relative}
-    .price{font-size:36px;font-weight:800}
-    .price small{font-size:14px;color:var(--muted)}
-    .most{position:absolute;top:12px;inset-inline:12px;background:linear-gradient(90deg, var(--c2), var(--c1));color:#08101f;padding:6px 10px;border-radius:10px;text-align:center;font-weight:800}
-    .testis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .faq{display:grid;grid-template-columns:1fr;gap:10px}
-    .faq .item{padding:14px}
-    .faq summary{cursor:pointer;font-weight:700}
-
-    footer{padding:32px 0;border-top:1px solid var(--stroke);color:var(--muted)}
-
-    @media (max-width: 1024px){
-      .wrap{grid-template-columns:1fr}
-      .steps{grid-template-columns:repeat(2,1fr)}
-      .pricing{grid-template-columns:repeat(2,1fr)}
-      .testis{grid-template-columns:repeat(2,1fr)}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    @media (max-width: 640px){
-      .links{display:none}
-      .menu{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--stroke);border-radius:12px;background:rgba(255,255,255,.03)}
-      .pricing{grid-template-columns:1fr}
-      .testis{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Tajawal', system-ui, Arial;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    /* رأس الصفحة */
+    .site-header {
+      background: var(--card);
+      box-shadow: var(--shadow-card);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .site-header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1.3rem;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .brand:hover {
+      color: var(--primary-light);
+    }
+
+    .brand img {
+      height: 42px;
+      transition: var(--transition);
+    }
+
+    .brand:hover img {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      right: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+      all: unset;
+      cursor: pointer;
+      font-size: 24px;
+      color: var(--primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .nav-toggle:hover {
+      background: rgba(15, 76, 129, 0.1);
+    }
+
+    /* قسم البطل */
+    .hero {
+      padding: 120px 0 100px;
+      background: linear-gradient(135deg, #e6f4ff 0%, #f0f9ff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230F4C81' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      margin: 0 0 1.5rem;
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--primary);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      margin: 0 0 2.5rem;
+      color: var(--text-light);
+      font-size: 1.2rem;
+      max-width: 90%;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 4px 12px rgba(15, 76, 129, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(15, 76, 129, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(15, 76, 129, 0.05);
+      transform: translateY(-3px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-top: 5px;
+    }
+
+    /* قسم النموذج */
+    .form-section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: 50%;
+      transform: translateX(50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .form-card {
+      background: var(--card);
+      padding: 50px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+    }
+
+    .form-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+
+    .form-header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .form-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      color: white;
+      font-size: 2rem;
+      box-shadow: 0 8px 20px rgba(15, 76, 129, 0.3);
+    }
+
+    .form-header h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-header p {
+      color: var(--text-light);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field.col-2 {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    label.required::after {
+      content: "*";
+      color: var(--accent);
+    }
+
+    .input-wrapper {
+      position: relative;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      background: #fff;
+      font-size: 16px;
+      font-family: 'Tajawal', sans-serif;
+      transition: var(--transition);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+    }
+
+    .amount-wrap {
+      display: flex;
+      gap: 15px;
+    }
+
+    .amount-wrap select {
+      max-width: 140px;
+    }
+
+    .error {
+      color: var(--accent);
+      font-size: 0.875rem;
+      height: 20px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 16px 36px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 12px rgba(15, 76, 129, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(15, 76, 129, 0.4);
+    }
+
+    .btn-reset {
+      background: transparent;
+      color: var(--text-light);
+      border: 1px solid var(--border);
+      padding: 16px 28px;
+      font-weight: 600;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-reset:hover {
+      background: rgba(100, 116, 139, 0.05);
+      color: var(--text);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      margin-right: auto;
+    }
+
+    .status.success {
+      color: #10b981;
+    }
+
+    .status.error {
+      color: var(--accent);
+    }
+
+    /* قسم الميزات */
+    .features-section {
+      padding: 100px 0;
+      background: #f1f5f9;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      padding: 40px 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .feature-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 80px;
+      background: rgba(15, 76, 129, 0.1);
+      border-radius: 50%;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      font-size: 2rem;
+      transition: var(--transition);
+    }
+
+    .feature-card:hover .feature-icon {
+      background: var(--primary);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+
+    .feature-card p {
+      color: var(--text-light);
+    }
+
+    /* قسم العملية */
+    .process-section {
+      padding: 100px 0;
+    }
+
+    .process-steps {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-top: 50px;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      right: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--border);
+      z-index: 1;
+    }
+
+    .process-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+    }
+
+    .step-number {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-light);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+
+    .process-step.active .step-number {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .step-desc {
+      color: var(--text-light);
+      max-width: 200px;
+    }
+
+    /* التذييل */
+    footer {
+      padding: 60px 0 30px;
+      background: var(--primary-dark);
+      color: white;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo img {
+      height: 40px;
+    }
+
+    .footer-about p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    .footer-heading {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--secondary);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: white;
+      padding-right: 5px;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    /* Honeypot */
+    .hp {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 30px;
+      }
+      
+      .process-steps {
+        flex-direction: column;
+        gap: 40px;
+      }
+      
+      .process-steps::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .nav-toggle {
+        display: flex;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .form-card {
+        padding: 30px 20px;
+      }
+      
+      .actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .btn-submit, .btn-reset {
+        justify-content: center;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#home"><div class="logo" aria-hidden="true"></div><span>TalenTree</span></a>
-      <nav class="links" aria-label="روابط رئيسية">
-        <a href="#features">الميزات</a>
-        <a href="#how">كيف تعمل</a>
-        <a href="#pricing">الأسعار</a>
-        <a href="#faq">الأسئلة</a>
-        <a class="cta" href="#signup">ابدأ مجانًا</a>
+  <!-- رأس الصفحة -->
+  <header class="site-header">
+    <div class="container wrap">
+      <a href="#" class="brand">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Digital_Dubai_logo.svg/320px-Digital_Dubai_logo.svg.png" alt="Digital Dubai">
+        <span>هيئة دبي الرقمية</span>
+      </a>
+      
+      <nav class="nav-links">
+        <a href="#" class="nav-link">الرئيسية</a>
+        <a href="#" class="nav-link">الخدمات</a>
+        <a href="#" class="nav-link">المدفوعات</a>
+        <a href="#" class="nav-link">المساعدة</a>
+        <a href="#" class="nav-link">اتصل بنا</a>
       </nav>
-      <button class="menu" id="menuBtn" aria-label="فتح القائمة">≡</button>
+      
+      <button class="nav-toggle" aria-label="القائمة">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
   </header>
 
-  <main id="home" class="hero">
-    <div class="container wrap">
-      <div>
-        <span class="pill">منصة الذكاء للمواهب العربية</span>
-        <h1 class="title">وظّف أفضل المواهب في دقائق—not شهور.</h1>
-        <p class="sub">مطابقة ذكية، عقود وإيداع آمن، ولوحة إدارة مشاريع—في مكان واحد.</p>
-        <div class="row" style="margin-top:18px">
-          <a href="#signup" class="btn primary">جرّب الآن مجانًا</a>
-          <a href="#features" class="btn">استكشف الميزات</a>
-        </div>
-        <div class="row" style="margin-top:16px;opacity:.9">
-          <div class="card" style="padding:8px 12px">AWS</div>
-          <div class="card" style="padding:8px 12px">Stripe</div>
-          <div class="card" style="padding:8px 12px">Binance Pay</div>
-          <div class="card" style="padding:8px 12px">Google</div>
-          <div class="card" style="padding:8px 12px">Cloudflare</div>
-        </div>
-      </div>
-
-      <div class="card dashboard">
-        <div class="glow" aria-hidden="true"></div>
-        <div class="ui">
-          <aside>
-            <div class="pill" style="margin-bottom:12px">مشروع جديد</div>
-            <div class="btn" style="display:block;text-align:center;margin-bottom:8px">لوحة المشاريع</div>
-            <div class="btn" style="display:block;text-align:center;margin-bottom:8px">العقود</div>
-            <div class="btn" style="display:block;text-align:center;margin-bottom:8px">المدفوعات</div>
-            <div class="btn" style="display:block;text-align:center">الدعم</div>
-          </aside>
-          <main>
-            <h3 style="margin:0 0 6px">مطابقة مرشحين</h3>
-            <p class="muted" style="margin:0 0 12px">تم إيجاد 8 مرشحين بدرجة ملاءمة &gt; 92%</p>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
-              <div class="card" style="padding:10px"><b>مطور React</b><br><small class="muted">ملاءمة 96% • 35 مشروع</small></div>
-              <div class="card" style="padding:10px"><b>مصمم UI/UX</b><br><small class="muted">ملاءمة 94% • 22 مشروع</small></div>
-              <div class="card" style="padding:10px"><b>مهندس DevOps</b><br><small class="muted">ملاءمة 92% • 18 مشروع</small></div>
+  <main>
+    <!-- بطل الصفحة -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>بوابة دفع الخدمات الرقمية</h1>
+          <p>منصة موحدة لسداد جميع الخدمات الحكومية والرقمية في دبي بكل سهولة وأمان. اختبر مستقبل المدفوعات الرقمية معنا.</p>
+          
+          <div class="hero-buttons">
+            <a href="#payment-form" class="btn btn-primary">
+              <i class="fas fa-credit-card"></i>
+              ابدأ الدفع الآن
+            </a>
+            <a href="#" class="btn btn-secondary">
+              <i class="fas fa-play-circle"></i>
+              شاهد الفيديو التعريفي
+            </a>
+          </div>
+          
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-value">+500</span>
+              <span class="stat-label">خدمة رقمية</span>
             </div>
-          </main>
+            <div class="stat">
+              <span class="stat-value">+2M</span>
+              <span class="stat-label">معاملة سنوية</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">99.8%</span>
+              <span class="stat-label">رضا العملاء</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">24/7</span>
+              <span class="stat-label">دعم فني</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- قسم الميزات -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>مميزات المنصة</h2>
+          <p>اكتشف لماذا تختار الملايين منصة دبي الرقمية لمعاملاتهم المالية</p>
+        </div>
+        
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>دفع آمن</h3>
+            <p>جميع معاملات الدفع محمية بأحدث تقنيات التشفير لضمان أمن معلوماتك وبياناتك المالية.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <h3>معالجة فورية</h3>
+            <p>معالجة فورية للمعاملات مع تأكيد فوري لإتمام عملية الدفع والخدمة في وقت قياسي.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>دعم فني متكامل</h3>
+            <p>فريق دعم فني متاح على مدار الساعة لمساعدتك في أي استفسار أو مشكلة تواجهك.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم العملية -->
+    <section class="process-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>كيفية الاستخدام</h2>
+          <p>خطوات بسيطة لإتمام معاملتك المالية بكل سهولة</p>
+        </div>
+        
+        <div class="process-steps">
+          <div class="process-step active">
+            <div class="step-number">1</div>
+            <h4 class="step-title">اختر الخدمة</h4>
+            <p class="step-desc">اختر الفئة والخدمة المطلوبة من القوائم المنسدلة</p>
+          </div>
+          
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h4 class="step-title">أدخل البيانات</h4>
+            <p class="step-desc">أدخل رقم المرجع وقيمة المبلغ والمعلومات المطلوبة</p>
+          </div>
+          
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h4 class="step-title">اكمل الدفع</h4>
+            <p class="step-desc">استكمل عملية الدفع عبر بوابة الدفع الإلكتروني الآمنة</p>
+          </div>
+          
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h4 class="step-title">احصل على التأكيد</h4>
+            <p class="step-desc">استلم تأكيد المعاملة عبر البريد الإلكتروني والرسائل النصية</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- النموذج -->
+    <section class="form-section" id="payment-form">
+      <div class="container">
+        <div class="form-card">
+          <div class="form-header">
+            <div class="form-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <h2>سداد رسوم الخدمة</h2>
+            <p>املأ النموذج أدناه لإتمام عملية الدفع بكل سهولة وأمان</p>
+          </div>
+
+          <form id="serviceForm" novalidate>
+            <!-- honeypot ضد السبام -->
+            <input type="text" id="hp_field" name="website" autocomplete="off" tabindex="-1" class="hp" aria-hidden="true" />
+
+            <div class="grid">
+              <div class="field">
+                <label for="refNo" class="required">رقم السداد / رقم الخدمة</label>
+                <div class="input-wrapper">
+                  <input id="refNo" name="refNo" inputmode="numeric" pattern="\d+" required placeholder="مثال: 123456" />
+                  <i class="fas fa-hashtag input-icon"></i>
+                </div>
+                <small class="error" data-for="refNo"></small>
+              </div>
+
+              <div class="field">
+                <label for="category" class="required">اختر الفئة</label>
+                <div class="input-wrapper">
+                  <select id="category" name="category" required>
+                    <option value="" selected disabled>أختر الفئة</option>
+                  </select>
+                  <i class="fas fa-list input-icon"></i>
+                </div>
+                <small class="error" data-for="category"></small>
+              </div>
+
+              <div class="field">
+                <label for="service" class="required">اختر الخدمة</label>
+                <div class="input-wrapper">
+                  <select id="service" name="service" required disabled>
+                    <option value="" selected disabled>—</option>
+                  </select>
+                  <i class="fas fa-cogs input-icon"></i>
+                </div>
+                <small class="error" data-for="service"></small>
+              </div>
+
+              <div class="field">
+                <label for="amount" class="required">أدخل قيمة الرسوم</label>
+                <div class="amount-wrap">
+                  <div class="input-wrapper" style="flex: 1;">
+                    <input id="amount" name="amount" inputmode="decimal" required placeholder="0.00" />
+                    <i class="fas fa-money-bill-wave input-icon"></i>
+                  </div>
+                  <select id="currency" name="currency" aria-label="العملة">
+                    <option value="AED" selected>AED</option>
+                    <option value="USD">USD</option>
+                    <option value="SAR">SAR</option>
+                  </select>
+                </div>
+                <small class="error" data-for="amount"></small>
+              </div>
+
+              <div class="field col-2">
+                <label for="note">ملاحظات (اختياري)</label>
+                <div class="input-wrapper">
+                  <textarea id="note" name="note" rows="3" placeholder="تفاصيل إضافية حول الخدمة أو طلب خاص"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i>
+                ابدأ عملية الدفع
+              </button>
+              <button type="reset" class="btn-reset">
+                <i class="fas fa-redo"></i>
+                إعادة تعيين
+              </button>
+              <span id="status" class="status" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <section id="features">
-    <div class="container">
-      <h2 class="sec-title">لماذا TalenTree؟</h2>
-      <p class="muted">كل ما تحتاجه لتوظيف سريع وآمن وإدارة سلسة للمشاريع.</p>
-      <div class="grid-3" style="margin-top:16px">
-        <div class="card" style="padding:18px"><div class="ico">🤖</div><h3>مطابقة بالذكاء</h3><p class="muted">تقييم يعتمد على الجودة لا الكلمات المفتاحية فقط، مع نقاط ثقة.</p></div>
-        <div class="card" style="padding:18px"><div class="ico">🧾</div><h3>عقود وإيداع آمن</h3><p class="muted">Escrow وفواتير تلقائية وربط بوابات دفع متعددة.</p></div>
-        <div class="card" style="padding:18px"><div class="ico">📊</div><h3>لوحة قيادة</h3><p class="muted">مهام ومراحل ومؤشرات وقت/تكلفة في مكان واحد.</p></div>
-        <div class="card" style="padding:18px"><div class="ico">🧠</div><h3>مساعد ذكي</h3><p class="muted">تفكيك المتطلبات وتوليد مهام وصياغة عقود مقترحة.</p></div>
-        <div class="card" style="padding:18px"><div class="ico">🔐</div><h3>أمان وخصوصية</h3><p class="muted">تشفير وصلاحيات دقيقة وتدقيق نشاطات.</p></div>
-        <div class="card" style="padding:18px"><div class="ico">🧩</div><h3>تكاملات جاهزة</h3><p class="muted">GitHub وFigma وSlack وواتساب للتنبيهات.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="how">
-    <div class="container">
-      <h2 class="sec-title">كيف تعمل المنصة؟</h2>
-      <div class="steps">
-        <div class="card" style="padding:18px"><div class="muted">1</div><h3>أنشئ مشروعك</h3><p class="muted">اكتب الهدف والميزانية والجدول—نحوّلها لمهام واضحة.</p></div>
-        <div class="card" style="padding:18px"><div class="muted">2</div><h3>مطابقة سريعة</h3><p class="muted">نرشّح أفضل 5 مواهب وفق الملاءمة والموثوقية.</p></div>
-        <div class="card" style="padding:18px"><div class="muted">3</div><h3>اتفاق وآمان</h3><p class="muted">وقّع عقدًا رقميًا مع إيداع آمن ودُفعات مرحلية.</p></div>
-        <div class="card" style="padding:18px"><div class="muted">4</div><h3>إدارة وتسليم</h3><p class="muted">تابع، راجع التسليمات، وادفع تلقائيًا عند القبول.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <div class="container">
-      <h2 class="sec-title">أسعار واضحة تناسب كل مرحلة</h2>
-      <p class="muted">ابدأ مجانًا—ادفع فقط عند الميزات المتقدمة.</p>
-      <div class="pricing" style="margin-top:16px">
-        <div class="card price-card">
-          <h3>مجاني</h3>
-          <p class="price">$0 <small>/ للأبد</small></p>
-          <ul class="muted"><li>إنشاء مشاريع غير محدود</li><li>مطابقة أساسية</li><li>رسائل داخلية</li></ul>
-          <a class="btn" href="#signup">ابدأ</a>
-        </div>
-        <div class="card price-card" style="border:1px solid rgba(167,139,250,.35)">
-          <div class="most">الأكثر شيوعًا</div>
-          <h3>Pro</h3>
-          <p class="price">$19 <small>/ شهريًا</small></p>
-          <ul class="muted"><li>مطابقة متقدمة + نقاط موثوقية</li><li>إدارة مهام ومراحل</li><li>تقارير وتكاملات</li></ul>
-          <a class="btn primary" href="#signup">جرّب 14 يوم مجانًا</a>
-        </div>
-        <div class="card price-card">
-          <h3>Business</h3>
-          <p class="price">$49 <small>/ شهريًا</small></p>
-          <ul class="muted"><li>صلاحيات فرق</li><li>قوالب عقود وEscrow متقدم</li><li>دعم أولوية + SLA</li></ul>
-          <a class="btn" href="#signup">تواصل للمؤسسات</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="container">
-      <h2 class="sec-title">الأسئلة الشائعة</h2>
-      <details class="card faq item"><summary>هل المنصة تأخذ عمولة؟</summary><p class="muted">الخطة المجانية 8% على المعاملات. Pro/Business: 3–5% حسب حجم الإنفاق.</p></details>
-      <details class="card faq item"><summary>كيف تعمل دفعات الـ Escrow؟</summary><p class="muted">يتم حجز الدفعة وتُطلق عند قبول المرحلة أو بعد تحكيم ناجح.</p></details>
-      <details class="card faq item"><summary>هل يوجد تحكيم للنزاعات؟</summary><p class="muted">نعم، عبر لجنة خبراء محايدة وسجل عمل داخل المنصة.</p></details>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2 class="sec-title">جاهز لتزرع شجرة مواهبك؟ 🌱</h2>
-      <p class="muted">سجّل بريدك وسنفتح لك حساب أولوية عند الإطلاق.</p>
-      <form class="card" id="signup" style="display:grid;gap:12px;padding:16px;margin-top:10px">
-        <label>الاسم الكامل
-          <input type="text" name="name" placeholder="مصطفى آدم" required style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);color:var(--text)">
-        </label>
-        <label>البريد الإلكتروني
-          <input type="email" name="email" placeholder="you@example.com" required style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);color:var(--text)">
-        </label>
-        <label>ما الذي تبحث عنه؟
-          <select name="role" style="width:100%;padding:12px;border-radius:10px;border:1px solid var(--stroke);background:rgba(255,255,255,.03);color:var(--text)">
-            <option value="client">أبحث عن مستقلين</option>
-            <option value="freelancer">أنا مستقل</option>
-          </select>
-        </label>
-        <button class="cta" type="submit" style="justify-self:start">أرسل طلب الانضمام</button>
-        <small class="muted" id="msg"></small>
-      </form>
-    </div>
-  </section>
-
   <footer>
-    <div class="container" style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap">
-      <div style="display:flex;align-items:center;gap:10px">
-        <div class="logo" aria-hidden="true"></div>
-        <div>
-          <b>TalenTree</b>
-          <div class="muted">© <span id="y"></span> جميع الحقوق محفوظة</div>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-about">
+          <div class="footer-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Digital_Dubai_logo.svg/320px-Digital_Dubai_logo.svg.png" alt="Digital Dubai">
+            <span>هيئة دبي الرقمية</span>
+          </div>
+          <p>نعمل على تحويل دبي إلى المدينة الأذكى والأسعد في العالم من خلال تمكين التحول الرقمي الشامل وتقديم خدمات رقمية متميزة.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links-group">
+          <h3 class="footer-heading">روابط سريعة</h3>
+          <div class="footer-links">
+            <a href="#">الرئيسية</a>
+            <a href="#">الخدمات</a>
+            <a href="#">المدفوعات</a>
+            <a href="#">المساعدة</a>
+            <a href="#">اتصل بنا</a>
+          </div>
+        </div>
+        
+        <div class="footer-links-group">
+          <h3 class="footer-heading">الخدمات</h3>
+          <div class="footer-links">
+            <a href="#">خدمات حكومية</a>
+            <a href="#">التجارة والصناعة</a>
+            <a href="#">الإقامة والهوية</a>
+            <a href="#">خدمات أخرى</a>
+            <a href="#">جميع الخدمات</a>
+          </div>
+        </div>
+        
+        <div class="footer-links-group">
+          <h3 class="footer-heading">الدعم</h3>
+          <div class="footer-links">
+            <a href="#">الأسئلة الشائعة</a>
+            <a href="#">الدعم الفني</a>
+            <a href="#">الشكاوى والمقترحات</a>
+            <a href="#">سياسة الخصوصية</a>
+            <a href="#">شروط الاستخدام</a>
+          </div>
         </div>
       </div>
-      <nav style="display:flex;gap:14px">
-        <a href="#features">الميزات</a>
-        <a href="#pricing">الأسعار</a>
-        <a href="#faq">الأسئلة</a>
-        <a href="#contact">تواصل</a>
-      </nav>
+      
+      <div class="copyright">
+        <p>© جميع الحقوق محفوظة 2024 هيئة دبي الرقمية | منصة موحدة لجميع المدفوعات الرقمية</p>
+      </div>
     </div>
   </footer>
 
   <script>
-    // سنة تلقائية
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // ===== بيانات الفئات والخدمات (مثال) =====
+    const CATEGORIES = {
+      "خدمات حكومية": [
+        "سداد الزكاة",
+        "سداد فواتير المياه والكهرباء",
+        "الغرامات المرورية",
+        "رسوم الخدمات البلدية",
+        "الرسوم القضائية"
+      ],
+      "التجارة والصناعة": [
+        "تجديد رخصة تجارية",
+        "حجز اسم تجاري",
+        "رسوم السجل التجاري",
+        "تراخيص النشاط الصناعي"
+      ],
+      "الإقامة والهوية": [
+        "تجديد إقامة",
+        "إصدار تأشيرة",
+        "تجديد جواز السفر",
+        "رسوم الهوية الإماراتية"
+      ],
+      "خدمات أخرى": [
+        "شهادة لمن يهمه الأمر",
+        "دعم الشؤون البيئية",
+        "رسوم الخدمات الصحية",
+        "الاشتراكات الثقافية"
+      ]
+    };
 
-    // قائمة الجوال
-    const menuBtn = document.getElementById('menuBtn');
-    const links = document.querySelector('.links');
-    menuBtn?.addEventListener('click', ()=>{
-      const open = links.style.display === 'flex';
-      links.style.display = open ? 'none' : 'flex';
-      links.style.flexDirection = 'column';
-      links.style.position = 'absolute';
-      links.style.top = '60px';
-      links.style.right = '4%';
-      links.style.background = 'rgba(15,23,42,.95)';
-      links.style.padding = '14px';
-      links.style.border = '1px solid var(--stroke)';
-      links.style.borderRadius = '14px';
-      links.style.boxShadow = 'var(--shadow)';
+    const form = document.getElementById('serviceForm');
+    const category = document.getElementById('category');
+    const service = document.getElementById('service');
+    const statusEl = document.getElementById('status');
+
+    // تعبئة الفئات
+    window.addEventListener('DOMContentLoaded', () => {
+      Object.keys(CATEGORIES).forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat; opt.textContent = cat; category.appendChild(opt);
+      });
+      
+      // تفعيل خطوات العملية
+      activateProcessStep(1);
     });
 
-    // نموذج الاشتراك (حفظ محلي كـ Demo)
-    const form = document.getElementById('signup');
-    const msg  = document.getElementById('msg');
-    form?.addEventListener('submit', (e)=>{
+    // تعبئة الخدمات حسب الفئة
+    category.addEventListener('change', () => {
+      service.innerHTML = '<option value="" selected disabled>—</option>';
+      service.disabled = false;
+      (CATEGORIES[category.value] || []).forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s; opt.textContent = s; service.appendChild(opt);
+      });
+      
+      activateProcessStep(2);
+    });
+
+    // تفعيل خطوة في عملية الاستخدام
+    function activateProcessStep(stepNumber) {
+      document.querySelectorAll('.process-step').forEach((step, index) => {
+        if (index < stepNumber) {
+          step.classList.add('active');
+        } else {
+          step.classList.remove('active');
+        }
+      });
+    }
+
+    function setError(id, msg){
+      const errorEl = document.querySelector(`.error[data-for="${id}"]`);
+      if (msg) {
+        errorEl.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${msg}`;
+      } else {
+        errorEl.textContent = '';
+      }
+    }
+    
+    function validAmount(v){ 
+      return /^\d+(?:[.,]\d{1,2})?$/.test(v); 
+    }
+
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      const arr = JSON.parse(localStorage.getItem('talentree_waitlist')||'[]');
-      arr.push({...data, ts: new Date().toISOString()});
-      localStorage.setItem('talentree_waitlist', JSON.stringify(arr));
-      msg.textContent = 'تم استلام طلبك! سنراسلُك عند الإطلاق ✉️';
-      form.reset();
+
+      // honeypot
+      if (document.getElementById('hp_field').value) return;
+
+      const refNo = document.getElementById('refNo').value.trim();
+      const amount = document.getElementById('amount').value.trim();
+      const currency = document.getElementById('currency').value;
+      const note = document.getElementById('note').value.trim();
+
+      let ok = true;
+      if(!/^[0-9]{3,}$/.test(refNo)){ 
+        setError('refNo','رقم صالح من 3 خانات فأكثر'); 
+        ok=false; 
+      } else setError('refNo');
+      
+      if(!category.value){ 
+        setError('category','اختر الفئة'); 
+        ok=false; 
+      } else setError('category');
+      
+      if(!service.value){ 
+        setError('service','اختر الخدمة'); 
+        ok=false; 
+      } else setError('service');
+      
+      if(!validAmount(amount)){ 
+        setError('amount','قيمة غير صالحة'); 
+        ok=false; 
+      } else setError('amount');
+      
+      if(!ok) return;
+
+      const payload = {
+        refNo, category: category.value, service: service.value,
+        amount, currency, note
+      };
+
+      statusEl.textContent = 'جاري الإرسال...';
+      statusEl.className = 'status';
+
+      try{
+        // حدّد المسار بناءً على منصة النشر:
+        let endpoint = '/api/submit';
+        if (location.hostname.includes('netlify')) endpoint = '/.netlify/functions/submit';
+
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if(!res.ok) throw new Error(data.message || 'فشل الإرسال');
+
+        statusEl.textContent = 'تم الإرسال بنجاح ✔️';
+        statusEl.className = 'status success';
+        form.reset(); 
+        service.disabled = true;
+        activateProcessStep(1);
+        
+        // إعادة تعيين النموذج بعد 3 ثوان
+        setTimeout(() => {
+          statusEl.textContent = '';
+        }, 3000);
+      }catch(err){
+        console.error(err);
+        statusEl.textContent = 'تعذر الإرسال. حاول لاحقًا.';
+        statusEl.className = 'status error';
+      }
+    });
+
+    // إضافة تأثيرات للعناصر عند التركيز
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+      el.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+      });
+      
+      el.addEventListener('blur', function() {
+        this.parentElement.classList.remove('focused');
+      });
     });
   </script>
 </body>
